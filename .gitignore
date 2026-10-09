@@ -1,0 +1,15 @@
+# Local notes and credentials
+note
+docs/note.txt
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+
+# Operating system files
+.DS_Store
+Thumbs.db

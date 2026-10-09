@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#5846db">
+  <title>Your dashboard — Credify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/dashboard.css"><link rel="stylesheet" href="css/pagination.css"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body class="dashboard-page">
+  <header class="dash-header">
+    <a class="brand" href="index.html"><span class="brand-mark">c</span><span>credify</span></a>
+    <div class="dash-header-right"><a href="index.html" class="back-site">← Back to site</a><span class="header-avatar" id="header-avatar">C</span><button id="header-signout" class="signout-button" type="button">Sign out</button></div>
+  </header>
+  <div class="dashboard-layout">
+    <aside class="dash-sidebar">
+      <div class="sidebar-profile"><span class="profile-avatar" id="profile-avatar">C</span><span><b id="profile-name">Your account</b><small id="profile-email">Loading account…</small></span></div>
+      <button class="mobile-tab-toggle" id="mobile-tab-toggle" type="button" aria-expanded="false"><span id="mobile-active-label">Overview</span><span>⌄</span></button>
+      <nav class="dash-tabs" id="dash-tabs" aria-label="Dashboard sections">
+        <button class="dash-tab active" data-tab="overview"><span>◫</span>Overview</button>
+        <button class="dash-tab" data-tab="scholarships"><span>✦</span>Scholarships</button>
+        <button class="dash-tab" data-tab="courses"><span>▤</span>Courses watched</button>
+        <button class="dash-tab" data-tab="certificates"><span>▧</span>Certificates</button>
+        <button class="dash-tab" data-tab="settings"><span>⚙</span>Settings</button>
+      </nav>
+      <a class="sidebar-help" href="mailto:hello@credify.com"><span>?</span><span><b>Need a hand?</b><small>We’re happy to help</small></span><span>↗</span></a>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-main-top"><div><div class="dash-eyebrow"><i></i> YOUR CREDIFY SPACE</div><h1 id="welcome-title">Welcome back.</h1><p>Keep your next steps moving, all in one place.</p></div><a class="button button-primary" href="scholarships.html">Explore scholarships <span>↗</span></a></div>
+      <p class="dash-alert" id="dash-alert" aria-live="polite"></p>
+      <section class="dashboard-panel active" id="panel-overview" aria-labelledby="welcome-title">
+        <div class="metric-grid"><article class="metric-card"><span class="metric-icon lilac">✦</span><small>APPLICATIONS TRACKED</small><b id="metric-applications">0</b><span>Scholarship applications</span></article><article class="metric-card"><span class="metric-icon green">▤</span><small>COURSES IN PROGRESS</small><b id="metric-courses">0</b><span>Learning at your pace</span></article><article class="metric-card"><span class="metric-icon peach">▧</span><small>CERTIFICATES SAVED</small><b id="metric-certificates">0</b><span>Your achievements</span></article></div>
+        <div class="overview-grid"><article class="content-card overview-progress"><div class="card-heading"><div><span class="eyebrow">YOUR LEARNING</span><h2>Keep the momentum</h2></div><button class="subtle-link" data-go-tab="courses">View courses <span>→</span></button></div><div id="overview-course-list" class="overview-course-list"><p class="empty-hint">Courses you add will appear here.</p></div></article><article class="content-card overview-deadlines"><div class="card-heading"><div><span class="eyebrow">NEXT DEADLINES</span><h2>Stay on track</h2></div><button class="subtle-link" data-go-tab="scholarships">View all <span>→</span></button></div><div id="overview-deadline-list" class="deadline-list"><p class="empty-hint">Track a scholarship to see its deadline here.</p></div></article></div>
+      </section>
+      <section class="dashboard-panel" id="panel-scholarships" aria-labelledby="scholarship-heading"><div class="content-card"><div class="card-heading"><div><span class="eyebrow">YOUR OPPORTUNITIES</span><h2 id="scholarship-heading">Scholarship applications</h2><p>Scholarships you choose to apply for will be collected here.</p></div></div><div id="scholarship-list" class="record-list"></div></div></section>
+      <section class="dashboard-panel" id="panel-courses" aria-labelledby="courses-heading"><div class="content-card"><div class="card-heading"><div><span class="eyebrow">YOUR LEARNING</span><h2 id="courses-heading">Courses watched</h2><p>Courses you choose to explore will be collected here.</p></div></div><div id="course-list" class="record-list"></div></div></section>
+      <section class="dashboard-panel" id="panel-certificates" aria-labelledby="certificates-heading"><div class="content-card"><div class="card-heading"><div><span class="eyebrow">YOUR ACHIEVEMENTS</span><h2 id="certificates-heading">Certificates</h2><p>Certificates you upload from a course appear here.</p></div></div><div id="certificate-list" class="record-list certificate-grid"></div></div></section>
+      <section class="dashboard-panel" id="panel-settings" aria-labelledby="settings-heading"><div class="content-card settings-card"><span class="eyebrow">ACCOUNT PREFERENCES</span><h2 id="settings-heading">Settings</h2><p>Manage the details associated with your Credify account.</p><form id="settings-form" class="settings-form"><label>Full name<input id="settings-name" name="full_name" placeholder="Your name"></label><label>Email address<input id="settings-email" type="email" disabled></label><button class="button button-primary" type="submit">Save changes</button><span id="settings-message" aria-live="polite"></span></form><div class="settings-divider"></div><div class="settings-password"><span><b>Password</b><small>We’ll send a secure password reset link to your email.</small></span><button class="button button-outline" id="reset-password" type="button">Send reset link</button></div></div></section>
+<dialog class="certificate-dialog" id="course-certificate-dialog" aria-labelledby="certificate-dialog-title"><form id="certificate-upload-form"><button class="dialog-close" type="button" id="close-certificate-dialog" aria-label="Close certificate upload">×</button><span class="eyebrow">COURSE COMPLETION</span><h2 id="certificate-dialog-title">Upload your certificate</h2><p class="dialog-course-name" id="certificate-course-name"></p><p class="dialog-help">Upload a PDF, JPG, or PNG certificate. Adding it marks this course as completed and saves the certificate in your Certificates tab.</p><label class="certificate-file-label" for="certificate-file">Choose certificate file</label><input id="certificate-file" name="certificate" type="file" accept="application/pdf,image/jpeg,image/png" required><div class="certificate-upload-loader" id="certificate-upload-loader" hidden role="status" aria-live="polite"><span class="upload-spinner" aria-hidden="true"></span><span>Uploading securely…</span><i></i></div><p class="certificate-upload-message" id="certificate-upload-message" role="status" aria-live="polite"></p><button class="button button-primary certificate-upload-submit" type="submit" id="certificate-upload-submit">Upload and mark completed <span>↗</span></button></form></dialog>
+<dialog class="delete-confirm-dialog" id="delete-confirm-dialog" aria-labelledby="delete-confirm-title"><form method="dialog" class="delete-confirm-card"><button class="dialog-close" type="button" data-close-delete aria-label="Close confirmation">×</button><span class="delete-confirm-icon" aria-hidden="true">!</span><span class="eyebrow">CONFIRM DELETION</span><h2 id="delete-confirm-title">Delete this item?</h2><p id="delete-confirm-copy">This item will be removed from your dashboard.</p><p class="delete-confirm-message" id="delete-confirm-message" role="status" aria-live="polite"></p><div class="delete-confirm-actions"><button class="button button-outline" type="button" data-close-delete>Cancel</button><button class="button button-danger" type="button" id="confirm-delete-button">Delete</button></div></form></dialog>
+      <footer class="dash-footer">Your progress belongs to you. <span>© Credify</span></footer>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/supabase-config.js"></script><script src="js/dashboard.js"></script>
+</body>
+</html>

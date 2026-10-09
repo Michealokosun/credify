@@ -1,0 +1,7 @@
+.list-pagination{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px auto 4px;color:#77768a;font-size:11px}
+.list-pagination[hidden]{display:none!important}
+.list-pagination button{min-height:35px;padding:0 12px;border:1px solid #e6e4ed;border-radius:7px;background:#fff;color:#3B28CC;font:700 10px 'DM Sans',sans-serif;cursor:pointer;transition:background .18s,border-color .18s}
+.list-pagination button:hover:not(:disabled){background:#f1efff;border-color:#d8d3ff}
+.list-pagination button:disabled{opacity:.45;cursor:not-allowed}
+.list-pagination span{min-width:82px;text-align:center;font-weight:600}
+@media(max-width:480px){.list-pagination{gap:9px}.list-pagination button{padding:0 9px}}
